@@ -1,12 +1,12 @@
 ﻿using Harmony;
 using System;
 using System.Reflection;
-using UnityEngine;
 using Assets.Code;
 using I2.Loc;
+using UnityEngine;
 
 /*
- * Huge thanks to all the great people helping me here, Especially Rakceyen !!!
+ * Huge thanks to all the great people helping me here, Especially Rakceyen and greenking2000 !!!
  * 
  */
 
@@ -50,16 +50,18 @@ namespace mods.CrownedRepublic
             {
 
                 //House_of_Parliament
-                HouseOfParliamentPrefab = AssetBundle.LoadAsset("assets/kcassets/workspace/house_of_parliament.prefab") as GameObject;
+                HouseOfParliamentPrefab = AssetBundle.LoadAsset("assets/workspace/House_of_Parliament.prefab") as GameObject;
                 
                 //=========================================================================//
 
                 //attaches the Building script to the prefab
-                HouseOfParliamentPrefab.AddComponent<Building>();
+                HouseOfParliamentPrefab?.AddComponent<Building>();
                 Building bHouseOfParliament = HouseOfParliamentPrefab.GetComponent<Building>();
 
                 BuildingCollider houseOfParliamentCol = bHouseOfParliament.transform.Find("Offset").Find("House_of_Parliament").gameObject.AddComponent<BuildingCollider>();
                 houseOfParliamentCol.Building = bHouseOfParliament;
+
+
                 bHouseOfParliament.UniqueName = "house_of_parliament";
                 bHouseOfParliament.customName = "House of Parliament";
                 bHouseOfParliament.uniqueNameHash = "".GetHashCode();
@@ -69,7 +71,7 @@ namespace mods.CrownedRepublic
                 //bHouse_of_Parliament.placementSounds = new string[] { "castleplacement" };//replace with building sound
                 //bHouse_of_Parliament.SelectionSounds = new string[] { "BuildingSelectCastleGate" };//replace with manor door sound
                 bHouseOfParliament.skillUsed = "Castle";
-                bHouseOfParliament.size = new Vector3(3f, 4f, 6f);
+                bHouseOfParliament.size = new Vector3(6f, 4f, 3f);
 
                 //cost
                 ResourceAmount cost = new ResourceAmount();
@@ -96,7 +98,6 @@ namespace mods.CrownedRepublic
                 bHouseOfParliament.allowOverAndUnderAqueducts = false;
                 bHouseOfParliament.allowCastleBlocksOnTop = 0;
                 bHouseOfParliament.dragPlacementMode = 0;
-                bHouseOfParliament.ignoreRoadCoverageForPlacement = false;
                 bHouseOfParliament.doBuildAnimation = true;
                 bHouseOfParliament.MaxLife = 10;
                 bHouseOfParliament.ignoreRoadCoverageForPlacement = true;
@@ -181,12 +182,18 @@ namespace mods.CrownedRepublic
         {
             static void Postfix(string Term, ref string __result)
             {
-                if (Term == "Building house_of_parliament FriendlyName")
-                    __result = "House_of_Parliament";
-                else if (Term == "Building house_of_parliament Description")
-                    __result = "Declares the republic & hand over legislative power to parliament.";
-                else if (Term == "Building apartment ThoughtOnBuilt")
-                    __result = "Astonished by the election for Parliament";
+                switch (Term)
+                {
+                    case "Building house_of_parliament FriendlyName":
+                        __result = "House of Parliament";
+                        break;
+                    case "Building house_of_parliament Description":
+                        __result = "Declares the republic & hands over legislative power to parliament.";
+                        break;
+                    case "Building apartment ThoughtOnBuilt":
+                        __result = "Astonished by the election for Parliament";
+                        break;
+                }
             }
         }
 
