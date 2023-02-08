@@ -132,7 +132,7 @@ namespace mods.CrownedRepublic
             bHouseOfParliament.MaxLife = 10;
             bHouseOfParliament.ignoreRoadCoverageForPlacement = true;
             
-            BuildingCheck(bHouseOfParliament);
+            // BuildingCheck(bHouseOfParliament); //TODO fix
         }
 
         
