@@ -1,0 +1,42 @@
+ManifestFileVersion: 0
+CRC: 757479758
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 3ff240dd3acd8dc8b7f703da32f5dd78
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: c6bd09c7c9c28fd9f1412f7180ba114b
+HashAppended: 1
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 20
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 108
+  Script: {instanceID: 0}
+Assets:
+- Assets/KCAssets/Models/HouseOfParliament/color_6306068.mat
+- Assets/KCAssets/Models/HouseOfParliament/Roof.mat
+- Assets/KCAssets/Models/HouseOfParliament/Wall Dark.mat
+- Assets/KCAssets/workspace/House_of_Parliament.prefab
+- Assets/KCAssets/Models/HouseOfParliament/Wall Light.mat
+- Assets/KCAssets/Models/HouseOfParliament/Windows.mat
+- Assets/KCAssets/Models/HouseOfParliament/House_of_Parliament.fbx
+Dependencies: []
